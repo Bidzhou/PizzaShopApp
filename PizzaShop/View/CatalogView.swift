@@ -20,7 +20,11 @@ struct CatalogView: View {
                         
                         ForEach(CatalogViewModel.shared.popularProducts, id: \.id){ item in
                             NavigationLink {
-                                ProductDetailView(product: item)
+                                
+                                let viewModel = ProductDetailViewModel(product: item)
+                                
+                                ProductDetailView(viewModel: viewModel)
+                                    //.navigationBarBackButtonHidden(true)
                             } label: {
                                 ProductCell(product: item)
                                     .foregroundColor(.black)
@@ -38,7 +42,10 @@ struct CatalogView: View {
                         
                         ForEach(CatalogViewModel.shared.pizza, id: \.id){ item in
                             NavigationLink {
-                                ProductDetailView(product: item)
+                                let viewModel = ProductDetailViewModel(product: item)
+                                
+                                ProductDetailView(viewModel: viewModel)
+                                    //.navigationBarBackButtonHidden(true)
                             } label: {
                                 ProductCell(product: item)
                                     .foregroundColor(.black)
@@ -49,6 +56,9 @@ struct CatalogView: View {
                 }
             }
         }.navigationBarTitle(Text("Каталог"))
+            
+            
+
     }
 }
 

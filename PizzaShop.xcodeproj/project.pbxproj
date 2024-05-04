@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		004835322BE66E0500AC5BBD /* CatalogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004835312BE66E0500AC5BBD /* CatalogViewModel.swift */; };
 		004835352BE67E1500AC5BBD /* ProductDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004835342BE67E1500AC5BBD /* ProductDetailView.swift */; };
+		004835392BE6893700AC5BBD /* ProductDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004835382BE6893700AC5BBD /* ProductDetailViewModel.swift */; };
+		0048353B2BE69F1300AC5BBD /* CardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048353A2BE69F1300AC5BBD /* CardViewModel.swift */; };
+		0048353D2BE69F4B00AC5BBD /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0048353C2BE69F4B00AC5BBD /* Position.swift */; };
 		0080F68C2BE534CA00FA0D97 /* PizzaShopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F68B2BE534CA00FA0D97 /* PizzaShopApp.swift */; };
 		0080F68E2BE534CA00FA0D97 /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F68D2BE534CA00FA0D97 /* AuthView.swift */; };
 		0080F6902BE534CB00FA0D97 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0080F68F2BE534CB00FA0D97 /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		004835312BE66E0500AC5BBD /* CatalogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewModel.swift; sourceTree = "<group>"; };
 		004835342BE67E1500AC5BBD /* ProductDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailView.swift; sourceTree = "<group>"; };
+		004835382BE6893700AC5BBD /* ProductDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewModel.swift; sourceTree = "<group>"; };
+		0048353A2BE69F1300AC5BBD /* CardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewModel.swift; sourceTree = "<group>"; };
+		0048353C2BE69F4B00AC5BBD /* Position.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
 		0080F6882BE534CA00FA0D97 /* PizzaShop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaShop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0080F68B2BE534CA00FA0D97 /* PizzaShopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PizzaShopApp.swift; sourceTree = "<group>"; };
 		0080F68D2BE534CA00FA0D97 /* AuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
@@ -52,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				0080F6A22BE5654B00FA0D97 /* Product.swift */,
+				0048353C2BE69F4B00AC5BBD /* Position.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -60,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				004835312BE66E0500AC5BBD /* CatalogViewModel.swift */,
+				004835382BE6893700AC5BBD /* ProductDetailViewModel.swift */,
+				0048353A2BE69F1300AC5BBD /* CardViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -198,8 +207,11 @@
 				0080F69A2BE5548500FA0D97 /* MainTabBar.swift in Sources */,
 				0080F68E2BE534CA00FA0D97 /* AuthView.swift in Sources */,
 				0080F68C2BE534CA00FA0D97 /* PizzaShopApp.swift in Sources */,
+				004835392BE6893700AC5BBD /* ProductDetailViewModel.swift in Sources */,
 				0080F6A02BE562CC00FA0D97 /* ProfileView.swift in Sources */,
+				0048353D2BE69F4B00AC5BBD /* Position.swift in Sources */,
 				0080F6A52BE5665E00FA0D97 /* ProductCell.swift in Sources */,
+				0048353B2BE69F1300AC5BBD /* CardViewModel.swift in Sources */,
 				0080F69C2BE5626000FA0D97 /* CatalogView.swift in Sources */,
 				0080F6A32BE5654B00FA0D97 /* Product.swift in Sources */,
 				004835322BE66E0500AC5BBD /* CatalogViewModel.swift in Sources */,
