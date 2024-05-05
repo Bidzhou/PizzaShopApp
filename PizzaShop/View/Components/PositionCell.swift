@@ -8,11 +8,29 @@
 import SwiftUI
 
 struct PositionCell: View {
+    
+    let position: Position
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        HStack {
+            Text(position.product.title)
+                .font(.title.bold())
+            Spacer()
+            Text("\(position.count) шт.")
+            Text("\(position.cost)₽")
+                .frame(width:85, alignment: .trailing)
+        }.padding(.horizontal)
     }
 }
 
 #Preview {
-    PositionCell()
+    PositionCell(
+        position: Position(id: UUID().uuidString,
+                           product: Product(id: UUID().uuidString,
+                                            title: "Маргарита",
+                                            imageUrl: "margarita",
+                                            price: 450,
+                                            description: "classic"),
+                           count: 3)
+    )
 }

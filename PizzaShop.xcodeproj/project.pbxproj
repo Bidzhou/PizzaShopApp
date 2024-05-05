@@ -22,6 +22,7 @@
 		0080F6A02BE562CC00FA0D97 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F69F2BE562CC00FA0D97 /* ProfileView.swift */; };
 		0080F6A32BE5654B00FA0D97 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F6A22BE5654B00FA0D97 /* Product.swift */; };
 		0080F6A52BE5665E00FA0D97 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F6A42BE5665E00FA0D97 /* ProductCell.swift */; };
+		00ED1ED52BE7F73E004E7BE2 /* PositionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ED1ED42BE7F73E004E7BE2 /* PositionCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		0080F69F2BE562CC00FA0D97 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		0080F6A22BE5654B00FA0D97 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		0080F6A42BE5665E00FA0D97 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
+		00ED1ED42BE7F73E004E7BE2 /* PositionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				0080F6A42BE5665E00FA0D97 /* ProductCell.swift */,
+				00ED1ED42BE7F73E004E7BE2 /* PositionCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 				0080F68E2BE534CA00FA0D97 /* AuthView.swift in Sources */,
 				0080F68C2BE534CA00FA0D97 /* PizzaShopApp.swift in Sources */,
 				004835392BE6893700AC5BBD /* ProductDetailViewModel.swift in Sources */,
+				00ED1ED52BE7F73E004E7BE2 /* PositionCell.swift in Sources */,
 				0080F6A02BE562CC00FA0D97 /* ProfileView.swift in Sources */,
 				0048353D2BE69F4B00AC5BBD /* Position.swift in Sources */,
 				0080F6A52BE5665E00FA0D97 /* ProductCell.swift in Sources */,

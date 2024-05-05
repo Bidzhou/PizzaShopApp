@@ -11,6 +11,8 @@ struct ProductDetailView: View {
     @State var size = "Маленькая"
     var viewModel: ProductDetailViewModel
     @State var count = 1
+    @Environment(\.presentationMode) var presentationMode
+    
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
@@ -49,7 +51,12 @@ struct ProductDetailView: View {
             }.ignoresSafeArea()
             Spacer()
             Button(action: {
-                print("add to card")
+                var position = Position(id: UUID().uuidString,
+                                        product: viewModel.product,
+                                        count: self.count)
+                position.product.price = viewModel.getPrice(size: size)
+                CardViewModel.shared.addPosition(position)
+                presentationMode.wrappedValue.dismiss() //закрытие карточки товара
             }, label: {
                 Text("В корзину")
                     .padding()
