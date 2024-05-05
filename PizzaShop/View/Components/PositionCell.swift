@@ -1,0 +1,18 @@
+//
+//  PositionCell.swift
+//  PizzaShop
+//
+//  Created by Bit Bitin on 5.05.2024.
+//
+
+import SwiftUI
+
+struct PositionCell: View {
+    var body: some View {
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    }
+}
+
+#Preview {
+    PositionCell()
+}
