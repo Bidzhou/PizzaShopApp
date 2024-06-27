@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainTabBar: View {
+    
+    var viewModel: MainTabBarViewModel
+    
     var body: some View {
         TabView {
             NavigationView{
@@ -27,7 +30,10 @@ struct MainTabBar: View {
                         Text("Корзина")
                     }
                 }
-            ProfileView()
+            ProfileView(viewModel: ProfileViewModel(profile: MWUser(id: "",
+                                                                    name: "",
+                                                                    phone: 9778251234,
+                                                                    address: "")))
                 .tabItem {
                     VStack {
                         Image(systemName: "person.circle")
@@ -38,7 +44,6 @@ struct MainTabBar: View {
     }
 }
 
-#Preview {
-    MainTabBar()
-}
-//1st commit
+//#Preview {
+//    MainTabBar(viewModel: MainTabBarViewModel(user: ))
+//}

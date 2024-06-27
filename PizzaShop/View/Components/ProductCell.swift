@@ -10,10 +10,10 @@ import SwiftUI
 struct ProductCell: View {
     
     var product: Product
-    
+    @State var uiImage =  UIImage(named: "margarita")!
     var body: some View {
         VStack(spacing: 10) {
-            Image("margarita")
+            Image(uiImage: uiImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
                 .frame(maxWidth: screen.width*0.55)
@@ -33,7 +33,20 @@ struct ProductCell: View {
             .background(.white)
             .cornerRadius(16)
             .shadow(radius: 4)
-            
+            .onAppear{
+                StorageService.shared.downloadProductPic(id: self.product.id) { result in
+                    switch result {
+                        
+                    case .success(let data):
+                        if let img = UIImage(data: data) {
+                            self.uiImage = img
+                        }
+                        
+                    case .failure(let error):
+                        print(error.localizedDescription)
+                    }
+                }
+            }
     }
 }
 

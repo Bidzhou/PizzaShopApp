@@ -34,7 +34,7 @@ class CatalogViewModel: ObservableObject{ // ObservableObject протокол �
                                             imageUrl: "not found",
                                             price: 600,
                                             description: "classic")]
-    var pizza = [Product(id: "1",
+    @Published var pizza = [Product(id: "1",
                             title: "Маргарита",
                             imageUrl: "not found",
                             price: 450,
@@ -59,4 +59,16 @@ class CatalogViewModel: ObservableObject{ // ObservableObject протокол �
                                             imageUrl: "not found",
                                             price: 600,
                                             description: "classic")]
+    
+    func getProducts() {
+        DatabaseService.shared.getProducts { result in
+            switch result {
+                
+            case .success(let products):
+                self.pizza = products
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
+        }
+    }
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct CartView: View {
     @StateObject var viewModel: CardViewModel
-    
+    @State var isAlertShowsOff = false
+    @State var alertMess = ""
     var body: some View {
         VStack {
             List(viewModel.positions){ position in
@@ -38,6 +39,7 @@ struct CartView: View {
             HStack(spacing: 24) {
                 Button(action: {
                     print("cancel")
+                    viewModel.clearCard()
                 }, label: {
                     Text("Отменить")
                         .font(.body)
@@ -49,7 +51,24 @@ struct CartView: View {
                 })
                 
                 Button(action: {
-                    print("заказ")
+                    var order = Order(userID: AuthService.shared.currentUser!.uid, date: Date(), status: OrderStatus.new.rawValue)
+                    order.positions = viewModel.positions
+                    
+                    DatabaseService.shared.setOrder(order: order) { result in
+                        switch result {
+                            
+                        case .success(let order):
+                            print(order.cost)
+                            viewModel.clearCard()
+                            alertMess = "Спасибо за заказ"
+                            isAlertShowsOff.toggle()
+                        case .failure(let error):
+                            print(error.localizedDescription)
+                            alertMess = "Произошла ошибка"
+                            isAlertShowsOff.toggle()
+                        }
+                    }
+                    
                 }, label: {
                     Text("Заказать")
                         .font(.body)
@@ -63,6 +82,12 @@ struct CartView: View {
                 })
                    
             } .padding()
+                .alert(alertMess,
+                       isPresented: $isAlertShowsOff) {
+                    Button { } label: {
+                        Text("Ok")
+                    }
+                }
         }
         
     }

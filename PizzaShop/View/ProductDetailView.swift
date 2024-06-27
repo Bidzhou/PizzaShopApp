@@ -16,7 +16,7 @@ struct ProductDetailView: View {
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
-                Image("margarita")
+                Image(uiImage: self.viewModel.image)
                     .resizable()
                     .frame(maxWidth: .infinity, maxHeight: screen.height/2.5)
                 HStack {
@@ -72,9 +72,12 @@ struct ProductDetailView: View {
             
             
         }
-       
+        .onAppear{
+            self.viewModel.getImage()
+        }
         
     }
+    
 }
 
 #Preview {

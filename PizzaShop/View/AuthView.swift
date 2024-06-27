@@ -15,6 +15,8 @@ struct AuthView: View {
     @State private var confirmPassword = ""
     @State private var isAuth = true
     @State private var isTabViewShow = false
+    @State private var isShowAlert = false
+    @State private var alertMessage = ""
     
     var body: some View {
         VStack(spacing:20) {
@@ -47,13 +49,46 @@ struct AuthView: View {
                 Button(action: {
                     if isAuth {
                         print("authorization")
-                        isTabViewShow.toggle()
+                        AuthService.shared.signIn(email: self.email,
+                                                  password: self.password) { result in
+                            switch result {
+                                
+                            case .success(_):
+                                isTabViewShow.toggle()
+                            case .failure(let error):
+                                alertMessage = "Ошибка авторизации \(error.localizedDescription)"
+                                isShowAlert.toggle()
+                            }
+                        }
                     } else {
                         print("registration")
-                        self.email = ""
-                        self.password = ""
-                        self.confirmPassword = ""
-                        self.isAuth.toggle()
+                        
+                        guard password == confirmPassword else {
+                            self.alertMessage = "Пароль не совпадают"
+                            self.isShowAlert.toggle()
+                            return
+                        }
+                        
+                        AuthService.shared.signUP(email: self.email,
+                                                  password: self.password) { result in
+                            switch result {
+                                
+                            case .success(let user):
+                                
+                                alertMessage = "Вы зарегистрировались с email \(user.email!)"
+                                self.isShowAlert.toggle()
+                                self.email = ""
+                                self.password = ""
+                                self.confirmPassword = ""
+                                self.isAuth.toggle()
+                            case .failure(let error):
+                                alertMessage = "Ошибка регистрации \(error.localizedDescription)"
+                                self.isShowAlert.toggle()
+                            }
+                        }
+                        
+                        
+                        
                     }
                 }, label: {
                     Text(isAuth ? "Войти": "Создать аккаунт")
@@ -76,6 +111,8 @@ struct AuthView: View {
                     .padding(.horizontal, 16)
                     .font(.title3.bold())
                     .foregroundColor(Color("darkBrown"))
+                    
+                    }
                 }
 
             }.padding()
@@ -84,6 +121,11 @@ struct AuthView: View {
                 .cornerRadius(24)
                 .padding(isAuth ? 20 : 10)
                 .padding(.bottom, 60)
+                .alert(alertMessage,
+                       isPresented: $isShowAlert) {
+                    Button { } label: {
+                        Text("Ok")
+                    }
                 
             
          
@@ -95,7 +137,14 @@ struct AuthView: View {
             )
             .animation(Animation.easeOut(duration: 0.15), value: isAuth)
             .fullScreenCover(isPresented: $isTabViewShow, content: {
-                MainTabBar()
+                if AuthService.shared.currentUser?.uid == "HEcHhT9TRIQfCzODLHbyXoRFkBt1" {
+                    AdminOrdersView()
+                } else {
+                    let mainTabBarViewModel = MainTabBarViewModel(user: AuthService.shared.currentUser!)
+                    MainTabBar(viewModel: mainTabBarViewModel)
+                }
+                
+                
             })
         
             

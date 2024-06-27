@@ -25,4 +25,8 @@ class CardViewModel: ObservableObject {
     func addPosition(_ position: Position) {
         self.positions.append(position)
     }
+    
+    func clearCard() {
+        positions.removeAll()
+    }
 }

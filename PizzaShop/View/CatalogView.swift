@@ -11,7 +11,7 @@ struct CatalogView: View {
     
     let layoutForPopular = [GridItem(.adaptive(minimum: screen.width/2.2))]
     let layoutForPizza = [GridItem(.adaptive(minimum: screen.width/3))]
-    
+    @StateObject var viewModel = CatalogViewModel()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             Section("Популярные") {
@@ -40,7 +40,7 @@ struct CatalogView: View {
                 ScrollView(.vertical, showsIndicators: false) {
                     LazyVGrid(columns: layoutForPizza, content: {
                         
-                        ForEach(CatalogViewModel.shared.pizza, id: \.id){ item in
+                        ForEach(viewModel.pizza, id: \.id){ item in
                             NavigationLink {
                                 let viewModel = ProductDetailViewModel(product: item)
                                 
@@ -56,7 +56,9 @@ struct CatalogView: View {
                 }
             }
         }.navigationBarTitle(Text("Каталог"))
-            
+            .onAppear{
+                viewModel.getProducts()
+            }
             
 
     }
