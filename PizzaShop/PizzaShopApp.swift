@@ -9,6 +9,7 @@ import SwiftUI
 import Firebase
 import FirebaseAuth
 //login: "Admin@admin.ru"; password: "12345678"
+//bob@mail.ru
 let screen = UIScreen.main.bounds
 
 class AppDelegate: NSObject, UIApplicationDelegate {
